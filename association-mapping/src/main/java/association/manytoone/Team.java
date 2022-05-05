@@ -1,4 +1,4 @@
-package association;
+package association.manytoone;
 
 import lombok.Getter;
 import lombok.Setter;
