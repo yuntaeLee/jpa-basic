@@ -1,4 +1,4 @@
-package oneway;
+package association;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +20,12 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    /**
+     * 연관관계 편의 메서드
+     */
+    //양방향 mapping 시 순수 객체 상태를 고려해서 항상 양쪽에 값을 셋팅해준다.
+    public void changeTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
+    }
 }
