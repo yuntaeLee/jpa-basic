@@ -1,5 +1,6 @@
 package association.manytoone;
 
+import association.mappedsuperclass.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-public class Member {
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "MEMBER_ID")

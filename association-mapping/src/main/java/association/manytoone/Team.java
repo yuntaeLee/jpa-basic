@@ -1,5 +1,6 @@
 package association.manytoone;
 
+import association.mappedsuperclass.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Team {
+public class Team extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "TEAM_ID")
