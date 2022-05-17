@@ -1,5 +1,7 @@
 package association;
 
+import association.inheritance.Item;
+import association.inheritance.Movie;
 import association.manytoone.Member;
 import association.manytoone.Team;
 
@@ -17,8 +19,7 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        try {
-/*
+        /*try {
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
@@ -37,11 +38,10 @@ public class JpaMain {
             for (Member m : members) {
                 System.out.println("m.getName() = " + m.getName());
             }
-*/
 
-            /**
+            *//**
              * 양방향 mapping 주의점
-             */
+             *//*
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
@@ -65,6 +65,34 @@ public class JpaMain {
 
             tx.commit();
         } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+
+        emf.close();
+        */
+
+
+        try {
+
+            Movie movie = new Movie();
+            movie.setDirector("aaa");
+            movie.setActor("bbb");
+            movie.setName("ccc");
+            movie.setPrice(10000);
+
+            em.persist(movie);
+
+            em.flush();
+            em.clear();
+
+            Item findMovie = em.find(Item.class, movie.getId());
+            System.out.println("findMovie = " + findMovie);
+
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println("e.getMessage() = " + e.getMessage());
             tx.rollback();
         } finally {
             em.close();
