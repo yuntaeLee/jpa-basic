@@ -21,7 +21,7 @@ public class Parent {
      * Parent와 Child의 Life cycle이 유사할 때
      * 단일 Entity에만 종속적일 때 사용
      */
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Child> children = new ArrayList<>();
 
     /**

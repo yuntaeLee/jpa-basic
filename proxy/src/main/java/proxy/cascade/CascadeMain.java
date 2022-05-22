@@ -35,6 +35,23 @@ public class CascadeMain {
              */
             em.persist(parent);
 
+            em.flush();
+            em.clear();
+
+            /**
+             * 고아 객체
+             * 고아 객체 제거: 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제
+             * orphanRemoval = true
+             *
+             * 주의점: 특정 Entity 하나에만 종속적일 때 사용
+             *
+             * 영속성 전이 + 고아 객체
+             * 1. 두 옵션을 모두 활성화 하면 부모 엔티티를 통해서 자식의 생명 주기를 관리할 수 있음
+             * 2. 도메인 주도 설계(DDD)의 Aggregate Root개념을 구현할 때 유용용
+             */
+            Parent findParent = em.find(Parent.class, parent.getId());
+            findParent.getChildren().remove(0);
+
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
