@@ -2,15 +2,13 @@ package valuetype;
 
 import valuetype.embedded.Address;
 import valuetype.embedded.Member;
-import valuetype.embedded.Period;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.time.LocalDateTime;
 
-public class JpaMain {
+public class EmbeddedMain {
 
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
