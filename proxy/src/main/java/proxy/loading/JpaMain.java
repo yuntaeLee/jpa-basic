@@ -37,7 +37,7 @@ public class JpaMain {
              * 2. 프록시 객체를 통해서 실제 엔티티에 접근 가능
              * 3. 프록시 객체는 원본 엔티티를 상속받음, 따라서 타입 체크시 주의 (instance of 사용)
              * 4. 영속성 컨텍스트에 찾는 엔티티가 이미 있으면 em.getReference() 를 호출해도 실제 엔티티 반환
-             * 5. 영속성 컨텍스트의 도움을 받을 수 없느 ㄴ준영속 상태일 때, 프록시를 초기화하면 문제 발생
+             * 5. 영속성 컨텍스트의 도움을 받을 수 없는 준영속 상태일 때, 프록시를 초기화하면 문제 발생
              */
 //            Member m = em.getReference(Member.class, member.getId());
 //            System.out.println("m.getClass() = " + m.getClass());
